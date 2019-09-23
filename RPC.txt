@@ -1,0 +1,14 @@
+Arquivos úteis:
+
+http://www.qnx.com/developers/docs/6.3.0SP3/neutrino/utilities/r/rpcgen.html
+
+https://www.ibm.com/support/knowledgecenter/ssw_aix_72/commprogramming/ch8_rpc.html
+
+https://docs.freebsd.org/44doc/psd/22.rpcgen/paper.pdf
+
+http://retrogeeks.org/sgi_bookshelves/SGI_Developer/books/IRIX_NetPG/sgi_html/ch05.html
+
+
+Um exemplo passo a passo muito bom:
+
+https://www.cs.rutgers.edu/~pxk/rutgers/notes/rpc/index.html

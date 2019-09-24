@@ -32,10 +32,9 @@ struct word
 
 struct words
 {
-	struct word *words;
+	struct word idx[32];
+	int n;
 };
-
-typedef struct word dict;
 
 /* note that this data type will be defined in the .h file produced by
    rpcgen. AND it will be typedef'd as well, so I can refer to it as
@@ -48,12 +47,12 @@ definitions. Remember this is not C, although it looks similar */
 
 program SIMP_PROG {
    version SIMP_VERSION {
-	 struct words lista_palavras() = 1;
-	 int insere_palavra(struct word) = 2;
-	 int remove_palavra(struct word) = 3;
-	 int busca_palavra(struct word) = 4;
-	 int cria_dicionario(dict) = 5;
-	 int apaga_dicionario(dict) = 6;
+	   struct words lista_palavras() = 1;
+	   int insere_palavra(struct word) = 2;
+	   int remove_palavra(struct word) = 3;
+	   int busca_palavra(struct word) = 4;
+	   int cria_dicionario() = 5;
+	   int apaga_dicionario() = 6;
    } = VERSION_NUMBER;
 } = 555555555;
 

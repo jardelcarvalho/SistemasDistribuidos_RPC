@@ -13,43 +13,44 @@
 /* we declare the variable result as static so we can return a
    pointer to it */
 
-int *
-lista_palavras_1_svc(operands *argp, struct svc_req *rqstp)
+struct words
+lista_palavras_1_svc(struct svc_req *rqstp)
 {
-	static int  result;
-
-	printf("Got request: adding %d, %d\n",
-	       argp->x, argp->y);
-
-	result = argp->x + argp->y;
-
-
-	return (&result);
+	FILE *f = fopen("dicionario.txt", 'r');
+	struct words *words = malloc(sizeof(struct words));
+	int i = 0;
+	while(!feof(f))
+	{
+		fscanf("%s", words.idx[i++].word);
+	}
+	fclose(f);
+	words.n = i;
+	return *words;
 }
 
-void
-insere_palavra_2_svc(key_value *argp, struct svc_req *rqstp)
-{
-	char *path = "dicts/";
-	int size = strlen(path) + strlen(key.name) + 1;
-	char *dest = (char *) malloc(size * sizeof(char));
-	FILE *f = fopen(sprintf(dest, "%s%s\0", path, key.name), 'w');
-
-	fprinf();
-}
-
-
-
-int *
-sub_1_svc(operands *argp, struct svc_req *rqstp)
-{
-	static int  result;
-
-	printf("Got request: subtracting %d, %d\n",
-	       argp->x, argp->y);
-
-	result = argp->x - argp->y;
-
-
-	return (&result);
-}
+// void
+// insere_palavra_1_svc(key_value *argp, struct svc_req *rqstp)
+// {
+// 	char *path = "dicts/";
+// 	int size = strlen(path) + strlen(key.name) + 1;
+// 	char *dest = (char *) malloc(size * sizeof(char));
+// 	FILE *f = fopen(sprintf(dest, "%s%s\0", path, key.name), 'w');
+//
+// 	fprinf();
+// }
+//
+//
+//
+// int *
+// sub_1_svc(operands *argp, struct svc_req *rqstp)
+// {
+// 	static int  result;
+//
+// 	printf("Got request: subtracting %d, %d\n",
+// 	       argp->x, argp->y);
+//
+// 	result = argp->x - argp->y;
+//
+//
+// 	return (&result);
+// }

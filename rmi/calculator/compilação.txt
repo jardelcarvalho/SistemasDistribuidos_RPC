@@ -1,0 +1,7 @@
+rmiregistry
+
+java -Djava.rmi.server.codebase=file:. -Djava.rmi.server.hostname="IP da maquina" Server
+
+Obs: Rmi.server.hostname permite que o servidor receba conexões externas
+
+java Client IP_do_Servidor
